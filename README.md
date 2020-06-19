@@ -1,3 +1,15 @@
+## Features
+
+### Absolute Imports
+
+If you want to import a module located at src/components/Button.js, you can import the module like so:
+
+```javaScript
+
+import Button from 'components/Button';
+
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
