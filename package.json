@@ -41,7 +41,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run format && yarn run lint"
+      "pre-commit": "cross-env NODE_ENV=development yarn run format && yarn run lint"
     }
   },
   "lint-staged": {
