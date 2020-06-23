@@ -1,9 +1,11 @@
 import React from 'react';
+import Notification, { NotifyAlert } from 'components/Notification';
 import 'css/App.css';
 
 function App() {
   return (
     <div className="App">
+      <Notification />
       <header className="App-header">
         <img
           src={`${process.env.PUBLIC_URL}/images/logo.svg`}
