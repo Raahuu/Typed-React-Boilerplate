@@ -2,13 +2,14 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ConnectedRouter } from 'connected-react-router';
 import { SnackbarProvider } from 'notistack';
 
 import { ThemeProvider as MuThemeProvider } from '@material-ui/core/styles';
 
 import Notification from 'components/Notification';
 
-import App from 'containers/App/App';
+import Routes from './routes';
 
 import configureStore from './store/configureStore';
 import * as serviceWorker from './serviceWorker';
@@ -26,8 +27,10 @@ ReactDOM.render(
         <MuThemeProvider theme={theme}>
           <SnackbarProvider maxSnack={3}>
             <Suspense fallback={<div>...Loading</div>}>
-              <Notification />
-              <App />
+              <ConnectedRouter history={history}>
+                <Notification />
+                <Routes />
+              </ConnectedRouter>
             </Suspense>
           </SnackbarProvider>
         </MuThemeProvider>
