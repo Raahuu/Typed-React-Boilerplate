@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import produce from 'immer';
 import { types, DefaultTypes } from './types';
 
