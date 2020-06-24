@@ -2,15 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { SnackbarProvider } from 'notistack';
 
+import { ThemeProvider as MuThemeProvider } from '@material-ui/core/styles';
+
+import Notification, { NotifyAlert } from 'components/Notification';
+
 import 'css/index.css';
 import App from 'containers/App/App';
 import * as serviceWorker from './serviceWorker';
+import theme from './theme';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SnackbarProvider maxSnack={3}>
-      <App />
-    </SnackbarProvider>
+    <MuThemeProvider theme={theme}>
+      <SnackbarProvider maxSnack={3}>
+        <Notification />
+        <App />
+      </SnackbarProvider>
+    </MuThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
