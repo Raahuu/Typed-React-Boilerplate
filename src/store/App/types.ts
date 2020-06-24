@@ -2,6 +2,13 @@ export const types = {
   DEFAULT: 'DEFAULT',
 };
 
-export interface DefaultAction {
+interface DefaultAction {
+  type: typeof types.DEFAULT;
   payload: String;
 }
+interface DefaultActionTwo {
+  type: typeof types.DEFAULT;
+  payload: String;
+}
+
+export type DefaultTypes = DefaultAction | DefaultActionTwo;
