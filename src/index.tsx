@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { SnackbarProvider } from 'notistack';
 
 import { ThemeProvider as MuThemeProvider } from '@material-ui/core/styles';
 
-import Notification, { NotifyAlert } from 'components/Notification';
+import Notification from 'components/Notification';
 
-import 'css/index.css';
 import App from 'containers/App/App';
+
+import configureStore from './store/configureStore';
 import * as serviceWorker from './serviceWorker';
 import theme from './theme';
+import history from './utils/history';
+
+import 'css/index.css';
+
+const { store, persistor } = configureStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
-    <MuThemeProvider theme={theme}>
-      <SnackbarProvider maxSnack={3}>
-        <Notification />
-        <App />
-      </SnackbarProvider>
-    </MuThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <MuThemeProvider theme={theme}>
+          <SnackbarProvider maxSnack={3}>
+            <Suspense fallback={<div>...Loading</div>}>
+              <Notification />
+              <App />
+            </Suspense>
+          </SnackbarProvider>
+        </MuThemeProvider>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

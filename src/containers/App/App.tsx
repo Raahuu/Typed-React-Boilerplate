@@ -3,13 +3,13 @@ import { NotifyAlert } from 'components/Notification';
 import 'css/App.css';
 
 function App() {
-  NotifyAlert({
-    message: 'Failed fetching data.',
-    options: {
-      key: new Date().getTime() + Math.random(),
-      variant: 'warning',
-    },
-  });
+  // NotifyAlert({
+  //   message: 'Failed fetching data.',
+  //   options: {
+  //     key: new Date().getTime() + Math.random(),
+  //     variant: 'warning',
+  //   },
+  // });
 
   return (
     <div className="App">
