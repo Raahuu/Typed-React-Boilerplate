@@ -4,24 +4,14 @@ import { useSnackbar } from 'notistack';
 interface RootState {
   message: String;
   options: {
-    key: string | number | undefined;
+    key: number | undefined;
     variant: 'warning' | 'default' | 'error' | 'success' | 'info' | undefined;
   };
 }
 
-// eslint-disable-next-line import/no-mutable-exports
-let NotifyAlert: Function;
-
 const Notification: React.FC = () => {
   const [notify, setNotify] = React.useState<RootState[]>([]);
   const { enqueueSnackbar } = useSnackbar();
-
-  NotifyAlert = (value: RootState) => {
-    setNotify((pre: RootState[]) => {
-      pre.push(value);
-      return pre;
-    });
-  };
 
   React.useEffect(() => {
     if (notify.length > 0) {
@@ -37,5 +27,5 @@ const Notification: React.FC = () => {
   }, [notify, enqueueSnackbar, setNotify]);
   return null;
 };
-export { NotifyAlert };
+
 export default Notification;

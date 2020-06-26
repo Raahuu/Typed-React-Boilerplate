@@ -1,15 +1,14 @@
-import React from 'react';
-import { NotifyAlert } from 'components/Notification';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import 'css/App.css';
+import { defaultAction } from 'store/App/action';
 
 function App() {
-  NotifyAlert({
-    message: 'Failed fetching data.',
-    options: {
-      key: new Date().getTime() + Math.random(),
-      variant: 'warning',
-    },
-  });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(defaultAction('test'));
+  }, [dispatch]);
 
   return (
     <div className="App">
