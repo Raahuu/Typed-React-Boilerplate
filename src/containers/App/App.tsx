@@ -1,16 +1,8 @@
 import React from 'react';
-import { NotifyAlert } from 'components/Notification';
+import { useSelector } from 'react-redux';
 import 'css/App.css';
 
 function App() {
-  NotifyAlert({
-    message: 'Failed fetching data.',
-    options: {
-      key: new Date().getTime() + Math.random(),
-      variant: 'warning',
-    },
-  });
-
   return (
     <div className="App">
       <header className="App-header">

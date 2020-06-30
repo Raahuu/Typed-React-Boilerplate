@@ -1,40 +1,33 @@
 import React from 'react';
 import { useSnackbar } from 'notistack';
+import { useSelector, useDispatch } from 'react-redux';
 
-interface RootState {
-  message: String;
-  options: {
-    key: string | number | undefined;
-    variant: 'warning' | 'default' | 'error' | 'success' | 'info' | undefined;
-  };
-}
+import { SelectorRootState } from 'store/AppNotification/types';
+import { removeNotification } from 'store/AppNotification/action';
 
 // eslint-disable-next-line import/no-mutable-exports
 let NotifyAlert: Function;
 
 const Notification: React.FC = () => {
-  const [notify, setNotify] = React.useState<RootState[]>([]);
+  const dispatch = useDispatch();
+  const { notification } = useSelector(
+    (state: SelectorRootState) => state.AppNotification
+  );
   const { enqueueSnackbar } = useSnackbar();
 
-  NotifyAlert = (value: RootState) => {
-    setNotify((pre: RootState[]) => {
-      pre.push(value);
-      return pre;
-    });
-  };
-
   React.useEffect(() => {
-    if (notify.length > 0) {
-      notify.forEach((el: RootState) => {
+    if (notification.length > 0) {
+      notification.forEach((el) => {
         enqueueSnackbar(el.message, {
           ...el.options,
-          onExited: (event, myKey) => {
+          onExited: (event, key) => {
             // remove Notification from state
+            dispatch(removeNotification(Number(key)));
           },
         });
       });
     }
-  }, [notify, enqueueSnackbar, setNotify]);
+  }, [notification, enqueueSnackbar, dispatch]);
   return null;
 };
 export { NotifyAlert };

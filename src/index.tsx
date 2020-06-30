@@ -4,7 +4,7 @@ import { SnackbarProvider } from 'notistack';
 
 import { ThemeProvider as MuThemeProvider } from '@material-ui/core/styles';
 
-import Notification, { NotifyAlert } from 'components/Notification';
+import Notification from 'components/Notification';
 
 import 'css/index.css';
 import App from 'containers/App/App';
