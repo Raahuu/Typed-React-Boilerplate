@@ -5,6 +5,7 @@ import {
   NotificationTypes,
   NOTIFY_APP,
   REMOVE_NOTIFY,
+  CLEAR_ALL,
   AddPayload,
 } from './types';
 
@@ -12,9 +13,8 @@ const initialState: ReducerState = {
   notification: [],
 };
 
-const removeNotification = (notification: AddPayload[], id: Number) => {
-  return remove(notification, (value: AddPayload) => value.options.key === id);
-};
+const removeNotification = (notification: AddPayload[], id: Number) =>
+  remove(notification, (value: AddPayload) => value.options.key === id);
 
 const reducer = (
   state = initialState,
@@ -33,6 +33,8 @@ const reducer = (
           action.payload.id
         );
         return draftState;
+      case CLEAR_ALL:
+        return initialState;
       default:
         return state;
     }

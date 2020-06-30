@@ -1,5 +1,6 @@
 export const NOTIFY_APP = 'NOTIFY_APP';
 export const REMOVE_NOTIFY = 'REMOVE_NOTIFY';
+export const CLEAR_ALL = 'CLEAR_ALL';
 
 export interface AddPayload {
   message: String;
@@ -29,4 +30,11 @@ interface RemoveNotifyAppAction {
   };
 }
 
-export type NotificationTypes = NotifyAppAction | RemoveNotifyAppAction;
+interface ClearAllAction {
+  type: typeof CLEAR_ALL;
+}
+
+export type NotificationTypes =
+  | NotifyAppAction
+  | RemoveNotifyAppAction
+  | ClearAllAction;

@@ -2,11 +2,12 @@ import {
   AddPayload,
   NOTIFY_APP,
   REMOVE_NOTIFY,
+  CLEAR_ALL,
   NotificationTypes,
 } from './types';
 
 // TypeScript infers that this function is returning SendMessageAction
-export function addNotification(payload: AddPayload): NotificationTypes {
+export function showNotification(payload: AddPayload): NotificationTypes {
   return {
     type: NOTIFY_APP,
     payload,
@@ -21,4 +22,8 @@ export function removeNotification(id: number): NotificationTypes {
       id,
     },
   };
+}
+
+export function ClearAll() {
+  return { type: CLEAR_ALL };
 }

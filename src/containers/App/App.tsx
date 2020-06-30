@@ -1,7 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { showNotification } from 'store/AppNotification/action';
 import 'css/App.css';
 
 function App() {
+  const dispatch = useDispatch();
+  dispatch(
+    showNotification({
+      message: 'Failed fetching data.',
+      options: {
+        key: new Date().getTime() + Math.random(),
+        variant: 'warning',
+      },
+    })
+  );
   return (
     <div className="App">
       <header className="App-header">
