@@ -1,15 +1,3 @@
-## Features
-
-### Absolute Imports
-
-If you want to import a module located at src/components/Button.js, you can import the module like so:
-
-```javaScript
-
-import Button from 'components/Button';
-
-```
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -36,3 +24,45 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Features
+
+### Absolute Imports
+
+If you want to import a module located at src/components/Button.js, you can import the module like so:
+
+```javaScript
+
+import Button from 'components/Button';
+
+```
+
+## Components
+
+### Notification
+
+To show notification dispatch the action showNotification and pass in the params you need
+
+```javaScript
+
+/*
+Payload  should be in this format {
+  message: String;
+  options: {
+    key: number | undefined;
+    variant: 'warning' | 'default' | 'error' | 'success' | 'info' | undefined;
+  };
+}
+
+*/
+import {showNotification} from 'store/AppNotification/action';
+
+dispatch(showNotification({
+    message: 'Failed fetching data.',
+    options: {
+      key: new Date().getTime() + Math.random(),
+      variant: 'warning',
+    },
+}))
+
+```
