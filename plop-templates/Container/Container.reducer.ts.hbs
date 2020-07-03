@@ -1,0 +1,21 @@
+import produce from 'immer';
+import { remove } from 'lodash';
+import { DEFAULT, DefaultActionType, ReducerState } from './types';
+
+const initialState: ReducerState = {};
+
+const reducer = (
+  state = initialState,
+  action: DefaultActionType
+): ReducerState =>
+  produce(state, (draft) => {
+    const draftState = draft;
+    switch (action.type) {
+      case DEFAULT:
+        return draftState;
+      default:
+        return state;
+    }
+  });
+
+export default reducer;

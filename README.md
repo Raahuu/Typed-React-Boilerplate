@@ -25,6 +25,12 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn generate`
+
+Generate Component/COntainer templates for your app. Run yan generate and choose one of the options.
+When creating a container the corresponding reducer action and type file will be created.The reducer will have to
+be manually added to the store config
+
 ## Features
 
 ### Absolute Imports
@@ -64,5 +70,20 @@ dispatch(showNotification({
       variant: 'warning',
     },
 }))
+
+```
+
+To change the position of the notification change the anchorOrigin in <SnackbarProvider/>
+
+```javaScript
+
+<SnackbarProvider
+    anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'left',
+    }}
+>
+    <App />
+</SnackbarProvider>
 
 ```

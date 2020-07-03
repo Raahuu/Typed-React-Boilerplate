@@ -53,7 +53,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css,json}\"",
+    "generate": "plop"
   },
   "husky": {
     "hooks": {
@@ -100,6 +101,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "fs": "^0.0.1-security",
+    "plop": "^2.7.1",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0"
   }

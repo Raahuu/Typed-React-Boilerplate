@@ -25,7 +25,13 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <MuThemeProvider theme={theme}>
-          <SnackbarProvider maxSnack={3}>
+          <SnackbarProvider
+            maxSnack={3}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+          >
             <Suspense fallback={<div>...Loading</div>}>
               <ConnectedRouter history={history}>
                 <Notification />

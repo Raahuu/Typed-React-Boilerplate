@@ -1,0 +1,15 @@
+export const DEFAULT = 'DEFAULT';
+export const DEFAULT_TWO = 'DEFAULT_TWO';
+
+export interface ReducerState {}
+
+interface DefaultActionTypes {
+  type: typeof DEFAULT;
+}
+
+interface DefaultTwoActionTypes {
+  type: typeof DEFAULT_TWO;
+}
+
+export type DefaultType = DefaultActionTypes | DefaultTwoActionTypes;
+
