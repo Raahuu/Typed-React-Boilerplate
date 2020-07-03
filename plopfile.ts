@@ -53,8 +53,8 @@ module.exports = (plop) => {
     },
   });
 
-  plop.setGenerator('page', {
-    description: 'Create a page',
+  plop.setGenerator('container', {
+    description: 'Create a container',
     // User input prompts provided as arguments to the template
     prompts: [
       {
@@ -63,7 +63,7 @@ module.exports = (plop) => {
         // Variable name for this input
         name: 'name',
         // Prompt to display on command line
-        message: 'What is your page name?',
+        message: 'What is your container name?',
       },
     ],
     actions: [
