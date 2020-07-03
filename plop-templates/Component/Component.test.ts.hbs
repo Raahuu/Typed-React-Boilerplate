@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import {{ properCase name }} from './index';
+import {{pascalCase name}} from './{{pascalCase name}}';
 
-describe('{{pascalCase name}}', () => {
-it('renders without error', () => {});
+test('renders learn react link', () => {
+  const { getByText } = render(<{{pascalCase name}} />);
+  const linkElement = getByText(/{{pascalCase name}}/i);
+  expect(linkElement).toBeInTheDocument();
 });
