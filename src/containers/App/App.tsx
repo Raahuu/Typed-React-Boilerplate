@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { showNotification } from 'store/AppNotification/action';
+import CustomForm from 'components/CustomForm';
 import 'css/App.css';
 
 function App() {
@@ -34,6 +35,27 @@ function App() {
           Learn React
         </a>
       </header>
+      <CustomForm
+        initialValues={{}}
+        onSave={(values: any) => {
+          console.log(values);
+        }}
+        formFields={[
+          {
+            id: '1',
+            width: 6,
+            label: 'name',
+            type: 'textField',
+          },
+          {
+            id: '2',
+            width: 2,
+            label: 'date',
+            type: 'multiselect',
+          },
+        ]}
+        selectOptions={{ date: [{ id: 1, label: 'one' }] }}
+      />
     </div>
   );
 }
